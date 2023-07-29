@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/reactjs-app-moviesReview/static/css/main.2e5cf7cc.css",
+    "main.js": "/reactjs-app-moviesReview/static/js/main.4905d540.js",
+    "index.html": "/reactjs-app-moviesReview/index.html",
+    "main.2e5cf7cc.css.map": "/reactjs-app-moviesReview/static/css/main.2e5cf7cc.css.map",
+    "main.4905d540.js.map": "/reactjs-app-moviesReview/static/js/main.4905d540.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2e5cf7cc.css",
+    "static/js/main.4905d540.js"
+  ]
+}
