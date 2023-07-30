@@ -1,10 +1,13 @@
 import axios from "axios";
 export default axios.create({
-    baseURL:'http://localhost:8080',
+// //    baseURL:'http://localhost:8080',
+// https://spring-app-moviesreview.onrender.com
+baseURL:'https://spring-app-moviesreview.onrender.com',
+
     headers: {
         "Content-Type": "application/json",
-        'Access-Control-Allow-Origin': '*',
-        '8080-skip-browser-warning':"true"
+        'Access-Control-Allow-Origin': '*'
+       
         }
 
 });
