@@ -9,22 +9,27 @@ import Header from './components/header/Header';
 import Trailer from './components/trailer/Trailer';
 
 import Reviews from './components/reviews/Reviews';
+import Loading from './loading/Loading';
 // import NotFound from './components/notfound/Notfound';
 
 function App() {
   const[movies,setMovies]=useState();
   const[movie,setMovie]=useState();
   const[reviewIds,setReviews]=useState();
+  const[loading,setLoading]=useState(false)
   const getMovies=async()=>{
 
     try
     {
-
+        setLoading(true);
       const response=await api.get("/api/v1/movies");
-
-     console.log(response.data)
+      
+     console.log(response.data);
+    //  console.log(loading);
       
       setMovies(response.data);
+     setLoading(false);
+    
 
     }catch(err){
       console.log(err);
@@ -46,21 +51,33 @@ function App() {
     useEffect(()=>{
       getMovies();
     },[])
+   
     
 
 
   return (
     <div className="App">
       <Header/>
-    <Routes>
+    {
+      loading?(
+        <Loading />
+
+      ):(
+        <Routes>
       <Route path="/" element={<Layout/>}>
         <Route path='/' element={<Home movies={movies}/>}></Route>
         <Route path='/Trailer/:ytTrailerId' element={<Trailer/>}></Route>
         <Route path='/Reviews/:movieId' element={<Reviews getMovieData={getMovieData} movie={movie} reviewIds={reviewIds} setReviews={setReviews}/>}></Route>
         {/* <Route path="*" element = {<NotFound/>}></Route> */}
 
-      </Route>
+       </Route>  
     </Routes>
+
+      )
+    }
+      
+  
+    
      
     </div>
   );
